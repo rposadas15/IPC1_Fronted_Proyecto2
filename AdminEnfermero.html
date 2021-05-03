@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Modulo Paciente</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  
+</head>
+
+<body onload="CitasPendientes(), CitasAceptadas(), SelectDoctores(), SelectPacientes()">
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/logo.png" alt="" class="img-fluid rounded-square">
+        <h1 class="text-light"><a href="UHospital.html">UHospital</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://twitter.com/rposadas_15" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="https://www.facebook.com/javier.posadas.09/" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/rposadas_15/" class="instagram"><i class="bx bxl-instagram"></i></a>          
+        </div>
+      </div>
+      
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>  
+            <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>UHospital</span></a></li>
+            <li><a href="#pacientep" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Citas Pendientes</span></a></li>
+            <li><a href="#pacientea" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Citas Aceptadas</span></a></li>
+            <li><a href="#factura" class="nav-link scrollto"><i class="bi bi-briefcase"></i> <span>Factura</span></a></li>               
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Encabezado Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>UHospital</h1>
+      <p>UHospital es el lugar donde <span class="typed" data-typed-items="cuidamos, nos preocupamos, atendemos"></span> de ti</p>
+    </div>
+  </section><!-- Fin Encabezado -->
+
+  <main id="main">
+
+    <!-- ======= Cita Section ======= --> 
+      <section id="pacientep" class="pacientep">
+        <div class="container">
+
+          <div class="section-title">
+            <h2> Informacion del Enfermero</h2>            
+            <div class="col-lg-4">
+              <div class="portfolio-info">
+                <button onclick="MasInfo()" type="button" class="btn btn-outline-warning">Mas Informacion</button>
+              </div>            
+            </div>
+
+            <br>
+            <h2>Citas Pendientes</h2>
+          
+            <table class="table table-dark table-striped">
+              <thead>
+                  <tr class="table-dark">
+                    <th> Fecha </th>
+                    <th> Hora </th>
+                    <th> Motivo </th>    
+                    <th> Paciente </th>                
+                    <th> Accion </th>
+                  </tr>
+              </thead>              
+              <tbody id="pendientes"></tbody>
+            </table> 
+            
+          </div>
+        </div>
+      </section>
+    <!-- ======= Fin Cita ======= -->
+
+    <!-- ======= Estado Section ======= --> 
+    <section id="pacientea" class="pacientea">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Citas Aceptadas</h2>
+        
+          <table class="table table-dark table-striped">
+            <thead>
+                <tr class="table-dark">
+                  <th> Fecha  </th>
+                  <th> Hora </th>
+                  <th> Motivo </th>
+                  <th> Paciente </th>
+                  <th> Doctor </th>
+                </tr>
+            </thead>              
+            <tbody id="aceptadas"></tbody>
+          </table> 
+
+        </div>
+      </div>
+    </section>
+  <!-- ======= Fin Estado ======= -->
+
+  <!-- ======= Compra Section ======= --> 
+  <section id="factura" class="factura">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Crear Factura</h2>
+        
+        <form id="Factura">
+              <div id="pdf_factura">
+
+                <h3>Factura</h3>
+
+                <div class="mb-3" style="text-align: center;">
+                  <label for="fecha" class="form-label">Fecha</label>
+                  <input type="date" class="form-control" id="fecha">
+                </div>
+                <div class="mb-3" style="text-align: center;">
+                  <label for="paciente" class="form-label">Paciente</label>                  
+                  <br>
+                  <select id="opciones_pacientes" name="opciones_pacientes" style="text-align: center; WIDTH: 1200px; HEIGHT: 35px">
+                    <option></option>                    
+                  </select>
+                </div>
+                <div class="mb-3" style="text-align: center;">
+                  <label for="doctor" class="form-label">Doctor</label>
+                  <br>
+                  <select id="opciones_doctor" name="opciones_doctor" style="text-align: center; WIDTH: 1200px; HEIGHT: 35px">
+                    <option></option>                    
+                  </select>
+                </div>
+                <div class="mb-3" style="text-align: center;">
+                  <label for="precioconsulta" class="form-label">Precio Consulta</label>              
+                  <input type="number" class="form-control" id="precioconsulta" oninput="Total()">
+                </div>
+                <div class="mb-3" style="text-align: center;">
+                  <label for="operacion" class="form-label">Costo Operacion</label>
+                  <input type="number" class="form-control" id="operacion" oninput="Total()" placeholder="No es obligatorio">
+                </div>
+                <div class="mb-3" style="text-align: center;">
+                  <label for="internado" class="form-label">Costo Internado</label>
+                  <input type="number" class="form-control" id="internado" oninput="Total()" placeholder="No es obligatorio">
+                </div>
+                <div class="mb-3" style="text-align: center;">
+                    <label for="total" class="form-label">Total</label>
+                    <input type="number" class="form-control" id="total" disabled>
+                </div>
+              </div>                 
+              <button onclick="CrearFactura()" type="button" class="btn btn-outline-dark">Crear Factura</button>
+          </form>
+
+      </div>
+    </div>
+  </section>
+  <!-- ======= Fin Compra ======= -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>iPortfolio</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <script src="assets/js/jquery.min.js" ></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+  <script src="assets/js/jspdf.min.js"></script>
+
+  <script>
+    function MasInfo(){
+      var usuario = sessionStorage.buscar_aenfermero
+      
+      sessionStorage.setItem("buscar_aenfermero", usuario)
+
+      location.href="Enfermero.html"
+    }
+  </script>
+
+  <script>
+      function CrearFactura(){          
+        var fecha = document.querySelector('#fecha').value
+        var paciente = document.querySelector('#opciones_pacientes').value            
+        var doctor = document.querySelector('#opciones_doctor').value
+        var precio_c = document.querySelector('#precioconsulta').value
+        var costo_o = document.querySelector('#operacion').value
+        var costo_i = document.querySelector('#internado').value
+        var total = document.querySelector('#total').value
+
+        if(costo_o != ''){
+        
+        }else{
+          costo_o = 0
+        }
+
+        if(costo_i != ''){
+        
+        }else{
+          costo_i = 0
+        }
+        
+        if(fecha != ''){
+          if(paciente != ''){
+            if(doctor != ''){
+              if(precio_c != ''){                
+                var objeto = {
+                    'fecha': fecha,
+                    'paciente': paciente,
+                    'doctor': doctor,
+                    'precio_c': precio_c,
+                    'costo_o': costo_o,
+                    'costo_i': costo_i,
+                    'total': total
+                }
+                console.log(objeto)         
+
+                fetch('https://proyecto2-b.herokuapp.com/Facturas', {
+                method: 'POST',
+                body: JSON.stringify(objeto),
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',}})
+
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Error:', err)
+                    alert("Datos Incompletos")
+                })
+                .then(response =>{
+                    console.log(response);
+                    alert(response.Mensaje) 
+                })
+                PDFFactura()
+                limpiarFormulario()                
+              }else{alert("Faltan datos para generar la Factura")}
+            }else{alert("Faltan datos para generar la Factura")}
+          }else{alert("Faltan datos para generar la Factura")}
+        }else{alert("Faltan datos para generar la Factura")}
+        
+      }
+  </script>
+
+  <script>
+      function limpiarFormulario(){
+      document.getElementById("Factura").reset();          
+      }
+  </script>
+
+  <script type="text/javascript">
+    function Total() {
+        var c = document.querySelector('#precioconsulta').value
+        var co = document.querySelector('#operacion').value
+        var ci = document.querySelector('#internado').value
+        if(c == ""){
+          c = 0
+        }
+        if(co == ""){
+          co = 0
+        }
+        if(ci == ""){
+          ci = 0
+        }
+        var suma = parseFloat(co) + parseFloat(ci) + parseFloat(c)
+        document.querySelector('#total').value = parseFloat(suma)
+    }
+  </script>
+
+  <script>
+    function CitasPendientes(){
+      var tabla = document.querySelector('#pendientes')
+      var cadena = ''
+      
+      fetch('https://proyecto2-b.herokuapp.com/Citas', {
+      method: 'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',}})
+      .then(res => res.json())
+      .catch(err => {
+          console.error('Error:', err)
+          alert("Ocurrio un error, ver la consola")
+      })
+      .then(response =>{
+          console.log(response);
+          response.forEach(element => {
+              //console.log(element)
+              if(element.Estado == "Pendiente"){
+                cadena += `<tr>
+                  <td> ${element.Fecha} </td>
+                  <td> ${element.Hora} </td>                  
+                  <td> ${element.Motivo} </td>
+                  <td> ${element.Paciente} </td>                  
+                  <td> <button value=${element.Paciente} onclick="Aceptar(this)" type="button" class="btn btn-outline-light">Aceptar</button> 
+                    <button value=${element.Paciente} onclick="Rechazar(this)" type="button" class="btn btn-outline-warning">Rechazar</button></td>
+                  </tr>`
+              }
+          });            
+          tabla.innerHTML = cadena
+      })
+    }
+  </script>
+
+  <script>
+    function CitasAceptadas(){
+      var tabla = document.querySelector('#aceptadas')
+      var cadena = ''
+      
+      fetch('https://proyecto2-b.herokuapp.com/Citas', {
+      method: 'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',}})
+      .then(res => res.json())
+      .catch(err => {
+          console.error('Error:', err)
+          alert("Ocurrio un error, ver la consola")
+      })
+      .then(response =>{
+          console.log(response);
+          response.forEach(element => {
+              //console.log(element)
+              if(element.Estado == "Aceptada"){
+                cadena += `<tr>
+                  <td> ${element.Fecha} </td>
+                  <td> ${element.Hora} </td>                  
+                  <td> ${element.Motivo} </td>
+                  <td> ${element.Paciente} </td>    
+                  <td> ${element.Doctor} </td>            
+                  </tr>`
+              }
+          });        
+          tabla.innerHTML = cadena          
+      })
+    }
+  </script>
+
+  <script>
+    function Aceptar(button){
+      var usuario = button.value      
+      location.href ="IndicarDoctor.html"
+      sessionStorage.setItem("doctor_cita", usuario)
+    }
+  </script>
+
+  <script>
+    function Rechazar(button){
+      var usuario = button.value
+      
+      fetch(`https://proyecto2-b.herokuapp.com/Citas/${usuario}`, {
+      method: 'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',}})
+      .then(res => res.json())
+      .catch(err => {
+          console.error('Error:', err)
+          alert("Ocurrio un error, ver la consola")
+      })
+      .then(response =>{
+          //console.log(response)
+          var fecha = response.Fecha
+          var hora = response.Hora
+          var paciente = response.Paciente
+          var motivo = response.Motivo
+          var estado = response.Estado
+          var doctor = response.Doctor
+
+          var objeto = {
+            'fecha': fecha,
+            'hora': hora,
+            'paciente': paciente,
+            'motivo': motivo,
+            'estado': "Rechazada",
+            'doctor': doctor
+          }
+          console.log(objeto)
+          
+          fetch(`https://proyecto2-b.herokuapp.com/Citas/${usuario}`, {
+          method: 'PUT',
+          body: JSON.stringify(objeto),
+          headers:{
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',}})
+          .then(res => res.json())
+          .catch(err => {
+              console.error('Error:', err)
+              alert("Ocurrio un error, ver la consola")
+          })
+          .then(response =>{
+              console.log(response);
+              alert(response.Mensaje)
+              CitasPendientes()
+              CitasAceptadas()
+          })            
+
+      })
+
+    }
+  </script>
+
+  <script>
+    function PDFFactura(){
+    html2canvas($('#pdf_factura')[0], {
+          onrendered: function (canvas) {
+              var data = canvas.toDataURL();
+              var docDefinition = {
+                  content: [{
+                      image: data,
+                      width: 500
+                  }]
+              };
+              pdfMake.createPdf(docDefinition).download("Factura.pdf");
+          }
+      });
+    }
+  </script>
+
+  <script>
+    function SelectDoctores(){
+      var opciones = document.querySelector('#opciones_doctor')
+      var cadena = ''
+      
+      fetch('https://proyecto2-b.herokuapp.com/Doctores', {
+      method: 'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',}})
+      .then(res => res.json())
+      .catch(err => {
+          console.error('Error:', err)
+          alert("Ocurrio un error, ver la consola")
+      })
+      .then(response =>{
+          console.log(response);
+          response.forEach(element => {              
+                cadena += `<option>
+                  ${element.Nombre} ${element.Apellido}                
+                  </option>`              
+          });        
+          opciones.innerHTML = cadena
+      })
+    }
+    function SelectPacientes(){
+      var opciones = document.querySelector('#opciones_pacientes')
+      var cadena = ''
+      
+      fetch('https://proyecto2-b.herokuapp.com/Citas', {
+      method: 'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',}})
+      .then(res => res.json())
+      .catch(err => {
+          console.error('Error:', err)
+          alert("Ocurrio un error, ver la consola")
+      })
+      .then(response =>{
+          console.log(response);
+          response.forEach(element => {    
+            if(element.Estado == 'Aceptada'){
+              cadena += `<option>
+              ${element.Paciente}
+              </option>` 
+            }                         
+          });
+          opciones.innerHTML = cadena
+      })
+    }
+  </script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>  
+
+</body>
+
+</html>

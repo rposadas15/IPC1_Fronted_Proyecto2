@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Administrador</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">  
+</head>
+
+<body onload='ObtenerAdmin(), ObtenerPacientes(), ObtenerEnfermeros(), ObtenerDoctores(), ObtenerMedicamentos()'>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/logo.png" alt="" class="img-fluid rounded-square">
+        <h1 class="text-light"><a href="UHospital.html">UHospital</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://twitter.com/rposadas_15" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="https://www.facebook.com/javier.posadas.09/" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/rposadas_15/" class="instagram"><i class="bx bxl-instagram"></i></a>          
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#admin" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Administrador</span></a></li>
+          <li><a href="#carga" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Carga de Archivos</span></a></li>
+          <li><a href="#pacientes" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Pacientes</span></a></li>
+          <li><a href="#enfermeros" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Enfermeros</span></a></li>
+          <li><a href="#medicos" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Doctores</span></a></li>
+          <li><a href="#medicamentos" class="nav-link scrollto"><i class="bx bx-link"></i> <span>Medicamentos</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Informacion del Admnistrador</h2>
+          <ol>
+            <li><a href="UHospital.html">UHospita l</a></li>
+            <li>Administrador</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Carga Section ======= --> 
+      <section id="admin" class="admin">
+        <div class="container">
+
+          <div class="section-title">
+            <h2>Administrador</h2>
+          
+            <div class="row gy-4">
+
+              <div class="col-lg-8">
+                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+                  <div class="icon"><i class="bi bi-briefcase"></i></div>
+                  <h4 class="title"><a href="">Nombre</a></h4>
+                  <input type="text" class="form-control" id="nombre" disabled>
+                </div>
+                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <div class="icon"><i class="bi bi-briefcase"></i></div>
+                  <h4 class="title"><a href="">Apellido</a></h4>
+                  <input type="text" class="form-control" id="apellido" disabled>
+                </div>
+                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <div class="icon"><i class="bi bi-bar-chart"></i></div>
+                  <h4 class="title"><a href="">Usuario</a></h4>
+                  <input type="text" class="form-control" id="usuario" disabled>
+                </div>
+                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <div class="icon"><i class="bi bi-binoculars"></i></div>
+                  <h4 class="title"><a href="">Contraseña</a></h4>
+                  <input type="password" class="form-control" id="password" disabled>
+                </div>
+              </div>
+    
+              <div class="col-lg-4">
+                <div class="portfolio-info">
+                  <h3>Mas Información</h3>
+                  <ul>
+                    <li><strong>Clase</strong>: IPC-1</li>
+                    <li><strong>Correo</strong>: <a href="#">carlosjimenez2286@gmail.com</a></li>
+                    <li><strong>Fecha</strong>: <script>
+                      var f = new Date();
+                      document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+                      </script>
+                    </li>                
+                  </ul>
+                </div>            
+              </div>
+    
+            </div>
+                
+          </div>
+        </div>
+      </section>
+    <!-- ======= Fin Admnistracion ======= -->      
+
+    <!-- ======= Fin Carga ======= -->
+    <section id="carga" class="carga">
+      <div class="container">
+        <form id="Carga">
+          <div class="section-title">
+            <h2>Carga de Archivos</h2>
+              <h3>Carga de Pacientes</h3>
+                <input type="file" class="form-control" id="cargapacientes">
+                <br>
+                <button onclick="CargaCSVPacientes()" type="button" class="btn btn-outline-dark">Cargar Pacientes</button>
+              <h3>Carga de Enfermeros</h3>
+                <input type="file" class="form-control" id="cargaenfermeros">
+                <br>
+                <button onclick="CargaCSVEnfermeros()" type="button" class="btn btn-outline-dark">Cargar Enfermeros</button>
+              <h3>Carga de Doctores</h3>
+                <input type="file" class="form-control" id="cargamedicos">
+                <br>
+                <button onclick="CargaCSVMedicos()" type="button" class="btn btn-outline-dark">Cargar Doctores</button>
+              <h3>Carga de Medicamentos</h3> 
+                <input type="file" class="form-control" id="cargamedicamentos">
+                <br> 
+                <button onclick="CargaCSVMedicamentos()" type="button" class="btn btn-outline-dark">Cargar Medicamentos</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Fin Carga -->
+
+    <!-- ======= Fin Pacientes ======= -->
+    <section id="pacientes" class="pacientes">
+      <div class="container">
+
+        <div class="section-title"id="pdfpacientes">
+          <h2>Pacientes</h2>
+          <table class="table table-dark table-striped">
+              <thead>
+                  <tr class="table-dark">
+                      <th> Nombre </th>
+                      <th> Apellido </th>
+                      <th> Usuario </th>
+                      <th> Acciones </th>
+                  </tr>
+              </thead>              
+              <tbody id="detalles_pacientes"></tbody>
+          </table>          
+        </div>
+        <button onclick="PDFPacientes()" type="button" class="btn btn-outline-dark">PDF Pacientes</button>
+      </div>
+    </section>
+    <!-- Fin Pacientes -->
+
+    <!-- ======= Fin Enfermeros ======= -->
+    <section id="enfermeros" class="enfermeros">
+      <div class="container">
+
+        <div class="section-title" id="pdfenfermeros">
+          <h2>Enfermeros</h2>
+            <table class="table table-dark table-striped">
+              <thead>
+                  <tr class="table-dark">
+                    <th> Nombre </th>
+                    <th> Apellido </th>                    
+                    <th> Usuario </th>
+                    <th> Acciones </th>
+                  </tr>
+              </thead>              
+              <tbody id="detalles_enfermeros"></tbody>
+          </table>          
+        </div>
+        <button onclick="PDFEnfermeros()" type="button" class="btn btn-outline-dark">PDF Enfermeros</button>
+      </div>      
+    </section>
+    <!-- Fin Enfermeros -->
+
+    <!-- ======= Fin Medicos ======= -->
+    <section id="medicos" class="medicos">
+      <div class="container">
+
+        <div class="section-title" id="pdfdoctores">
+          <h2>Doctores</h2>
+            <table class="table table-dark table-striped">
+              <thead>
+                  <tr class="table-dark">
+                    <th> Nombre </th>
+                    <th> Apellido </th>
+                    <th> Usuario </th>                              
+                    <th> Especialidad </th>                    
+                    <th> Acciones </th>
+                  </tr>
+              </thead>              
+              <tbody id="detalles_medicos"></tbody>
+          </table>          
+        </div>
+        <button onclick="PDFDoctores()" type="button" class="btn btn-outline-dark">PDF Doctores</button>
+      </div>      
+    </section>
+    <!-- Fin Medicos -->
+
+    <!-- ======= Fin Medicamentos ======= -->
+    <section id="medicamentos" class="medicamentos">
+      <div class="container">
+
+        <div class="section-title" id="pdfmedicamnetos">
+          <h2>Medicamentos</h2>
+            <table class="table table-dark table-striped">
+              <thead>
+                  <tr class="table-dark">
+                      <th> Nombre </th>
+                      <th> Precio </th>
+                      <th> Descripcion </th>
+                      <th> Cantidad </th>
+                      <th> Acciones </th>
+                  </tr>
+              </thead>              
+              <tbody id="detalles_medicamentos"></tbody>
+          </table>          
+        </div>
+        <button onclick="PDFMedicamentps()" type="button" class="btn btn-outline-dark">PDF Medicamentos</button>
+      </div>      
+    </section>
+    <!-- Fin Medicamentos -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>iPortfolio</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <script>
+    function ObtenerAdmin(){
+      var usuario = sessionStorage.buscar
+      fetch(`https://proyecto2-b.herokuapp.com/Administrador/${usuario}`, {
+      method: 'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',}})
+      .then(res => res.json())
+      .catch(err => {
+          console.error('Error:', err)
+          alert("Ocurrio un error, ver la consola")
+      })
+      .then(response =>{
+          console.log(response)
+          document.querySelector('#nombre').value = response.Nombre
+          document.querySelector('#apellido').value = response.Apellido
+          document.querySelector('#usuario').value = response.Usuario
+          document.querySelector('#password').value = response.Password
+          
+      })
+    }
+  </script>
+  
+  <script src="assets/js/jquery.min.js" ></script>
+  <script src="assets/js/common.js"></script>
+  <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+  <script src="assets/js/demo.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+  <script src="assets/js/jspdf.min.js"></script>
+
+  <script>
+    function CargaCSVPacientes(){      
+      $('#cargapacientes').parse({
+        config: {
+          delimiter: ",",
+          complete: GuardarPacientes,
+        },
+        before: function(file, inputElem)
+        {
+          //console.log("Parsing file...", file);
+        },
+        error: function(err, file)
+        {
+          //console.log("ERROR:", err, file);
+        },
+        complete: function()
+        {
+          //console.log("Done with all files");          
+        }
+      });
+
+      function GuardarPacientes(resultados){
+        console.log(resultados.data)
+        var data = resultados.data;
+        data.shift();
+        data.forEach(element => {
+          console.log(element)
+          var objeto = {
+            'nombre': element[0],
+            'apellido': element[1],
+            'fecha': element[2],
+            'sexo': element[3],
+            'usuario': element[4],
+            'password': element[5],
+            'telefono': element[6],
+            'paciente': 0
+          }
+          console.log(objeto)
+
+          fetch('https://proyecto2-b.herokuapp.com/Pacientes', {
+          method: 'POST',
+          body: JSON.stringify(objeto),
+          headers:{
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',}})
+          .then(res => res.json())
+          .catch(err => {
+              console.error('Error:', err)
+              alert("Ocurrio un error, ver la consola")
+          })
+          .then(response =>{
+              console.log(response);
+              //alert(response.Mensaje)
+              ObtenerPacientes() 
+              LimpiarCargas()      
+          })
+
+        });
+        alert("Se agregaron a los Pacientes")
+      }
+    }
+  </script>
+
+  <script>
+    function CargaCSVEnfermeros(){      
+      $('#cargaenfermeros').parse({
+        config: {
+          delimiter: ",",
+          complete: GuardarEnfermeros,
+        },
+        before: function(file, inputElem)
+        {
+          //console.log("Parsing file...", file);
+        },
+        error: function(err, file)
+        {
+          //console.log("ERROR:", err, file);
+        },
+        complete: function()
+        {
+          //console.log("Done with all files");
+        }
+      });
+
+      function GuardarEnfermeros(resultados){
+        console.log(resultados.data)
+        var data = resultados.data;
+        data.shift();
+        data.forEach(element => {
+          console.log(element)
+          var objeto = {
+            'nombre': element[0],
+            'apellido': element[1],
+            'fecha': element[2],
+            'sexo': element[3],
+            'usuario': element[4],
+            'password': element[5],
+            'telefono': element[6],
+            'paciente': 1
+          }
+          console.log(objeto)
+
+          fetch('https://proyecto2-b.herokuapp.com/Enfermeros', {
+          method: 'POST',
+          body: JSON.stringify(objeto),
+          headers:{
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',}})
+
+          .then(res => res.json())
+          .catch(err => {
+              console.error('Error:', err)
+              alert("Ocurrio un error, ver la consola")
+          })
+          .then(response =>{
+              console.log(response);
+              //alert(response.Mensaje)
+              ObtenerEnfermeros()
+              LimpiarCargas()         
+          })
+
+        });
+        alert("Se agregaron a los Enfermeros")
+      }
+    }
+  </script>
+
+  <script>
+    function CargaCSVMedicos(){      
+      $('#cargamedicos').parse({
+        config: {
+          delimiter: ",",
+          complete: GuardarMedicos,
+        },
+        before: function(file, inputElem)
+        {
+          //console.log("Parsing file...", file);
+        },
+        error: function(err, file)
+        {
+          //console.log("ERROR:", err, file);
+        },
+        complete: function()
+        {
+          //console.log("Done with all files");
+        }
+      });
+
+      function GuardarMedicos(resultados){
+        console.log(resultados.data)
+        var data = resultados.data;
+        data.shift();
+        data.forEach(element => {
+          console.log(element)
+          var objeto = {
+            'nombre': element[0],
+            'apellido': element[1],
+            'fecha': element[2],
+            'sexo': element[3],
+            'usuario': element[4],
+            'password': element[5],
+            'especialidad': element[6],
+            'telefono': element[7]            
+          }
+          console.log(objeto)
+
+          fetch('https://proyecto2-b.herokuapp.com/Doctores', {
+          method: 'POST',
+          body: JSON.stringify(objeto),
+          headers:{
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',}})
+
+          .then(res => res.json())
+          .catch(err => {
+              console.error('Error:', err)
+              alert("Ocurrio un error, ver la consola")
+          })
+          .then(response =>{
+              console.log(response);
+              //alert(response.Mensaje)
+              ObtenerDoctores()
+              LimpiarCargas()        
+          })
+
+        });
+        alert("Se agregaron a los Doctores")
+      }
+    }
+  </script>
+
+  <script>
+    function CargaCSVMedicamentos(){      
+      $('#cargamedicamentos').parse({
+        config: {
+          delimiter: ",",
+          complete: GuardarMedicamentos,
+        },
+        before: function(file, inputElem)
+        {
+          //console.log("Parsing file...", file);
+        },
+        error: function(err, file)
+        {
+          //console.log("ERROR:", err, file);
+        },
+        complete: function()
+        {
+          //console.log("Done with all files");
+        }
+      });
+
+      function GuardarMedicamentos(resultados){
+        console.log(resultados.data)
+        var data = resultados.data;
+        data.shift();
+        data.forEach(element => {
+          console.log(element)
+          var objeto = {
+            'nombre': element[0],
+            'precio': element[1],
+            'descripcion': element[2],
+            'cantidad': element[3]
+          }
+          console.log(objeto)
+
+          fetch('https://proyecto2-b.herokuapp.com/Medicamentos', {
+          method: 'POST',
+          body: JSON.stringify(objeto),
+          headers:{
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',}})
+
+          .then(res => res.json())
+          .catch(err => {
+              console.error('Error:', err)
+              alert("Ocurrio un error, ver la consola")
+          })
+          .then(response =>{
+              console.log(response);
+              //alert(response.Mensaje)
+              ObtenerMedicamentos()
+              LimpiarCargas()
+          })
+
+        });
+        alert("Se agregaron los Medicamentos")
+      }
+    }
+  </script>
+
+  <script>
+    function LimpiarCargas(){
+      document.getElementById("Carga").reset();      
+    }
+    
+  </script>
+
+  <script>
+    function ObtenerPacientes(){
+      var tabla = document.querySelector('#detalles_pacientes')
+      var cadena = ''
+      
+      fetch('https://proyecto2-b.herokuapp.com/Pacientes', {
+      method: 'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',}})
+      .then(res => res.json())
+      .catch(err => {
+          console.error('Error:', err)
+          alert("Ocurrio un error, ver la consola")
+      })
+      .then(response =>{
+          console.log(response);
+          response.forEach(element => {
+              console.log(element)
+              cadena += `<tr>
+                  <td> ${element.Nombre} </td>
+                  <td> ${element.Apellido} </td>                  
+                  <td> ${element.Usuario} </td>
+                  <td> <button value=${element.Usuario} onclick="verPaciente(this)" type="button" class="btn btn-warning">Ver Paciente</button> </td>
+                  </tr>`
+          });
+          
+          tabla.innerHTML = cadena
+      })
+    }
+  </script>
+
+  <script>
+    function ObtenerEnfermeros(){
+      var tabla = document.querySelector('#detalles_enfermeros')
+      var cadena = ''
+      
+      fetch('https://proyecto2-b.herokuapp.com/Enfermeros', {
+      method: 'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',}})
+      .then(res => res.json())
+      .catch(err => {
+          console.error('Error:', err)
+          alert("Ocurrio un error, ver la consola")
+      })
+      .then(response =>{
+          console.log(response);
+          response.forEach(element => {
+              console.log(element)
+              cadena += `<tr>
+                  <td> ${element.Nombre} </td>
+                  <td> ${element.Apellido} </td>                  
+                  <td> ${element.Usuario} </td>
+                  <td> <button value=${element.Usuario} onclick="verEnfermero(this)" type="button" class="btn btn-warning">Ver Enfermero</button> </td>
+                  </tr>`
+          });
+          
+          tabla.innerHTML = cadena
+      })
+    }
+  </script>
+
+  <script>
+    function ObtenerDoctores(){
+      var tabla = document.querySelector('#detalles_medicos')
+      var cadena = ''
+      
+      fetch('https://proyecto2-b.herokuapp.com/Doctores', {
+      method: 'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',}})
+      .then(res => res.json())
+      .catch(err => {
+          console.error('Error:', err)
+          alert("Ocurrio un error, ver la consola")
+      })
+      .then(response =>{
+          console.log(response);
+          response.forEach(element => {
+              console.log(element)
+              cadena += `<tr>
+                  <td> ${element.Nombre} </td>
+                  <td> ${element.Apellido} </td>                  
+                  <td> ${element.Usuario} </td>
+                  <td> ${element.Especialidad} </td>
+                  <td> <button value=${element.Usuario} onclick="verDoctor(this)" type="button" class="btn btn-warning">Ver Doctor</button> </td>
+                  </tr>`
+          });
+          
+          tabla.innerHTML = cadena
+      })
+    }
+  </script>
+
+  <script>
+    function ObtenerMedicamentos(){
+      var tabla = document.querySelector('#detalles_medicamentos')
+      var cadena = ''
+      
+      fetch('https://proyecto2-b.herokuapp.com/Medicamentos', {
+      method: 'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',}})
+      .then(res => res.json())
+      .catch(err => {
+          console.error('Error:', err)
+          alert("Ocurrio un error, ver la consola")
+      })
+      .then(response =>{
+          console.log(response);
+          response.forEach(element => {
+              console.log(element)
+              cadena += `<tr>
+                  <td> ${element.Nombre} </td>
+                  <td> ${element.Precio} </td>                  
+                  <td> ${element.Descripcion} </td>
+                  <td> ${element.Cantidad} </td>
+                  <td> <button value=${element.Nombre} onclick="verMedicamento(this)" type="button" class="btn btn-warning">Ver Medicamento</button> </td>
+                  </tr>`
+          });
+          
+          tabla.innerHTML = cadena
+      })
+    }
+  </script>
+
+  <script>
+  function verPaciente(boton){
+    console.log(boton)
+    var usuario = boton.value
+    
+    sessionStorage.setItem("buscar_apaciente", usuario)
+
+    
+    location.href="Paciente.html"
+  }
+  </script>
+
+  <script>
+  function verEnfermero(boton){
+    console.log(boton)    
+    var usuario = boton.value
+    
+    sessionStorage.setItem("buscar_aenfermero", usuario)
+
+    
+    location.href="Enfermero.html"
+  }
+  </script>
+
+  <script>
+  function verDoctor(boton){
+    console.log(boton)    
+    var usuario = boton.value
+    
+    sessionStorage.setItem("buscar_adoctor", usuario)
+
+    
+    location.href="Doctor.html"
+  }
+  </script>
+
+  <script>
+  function verMedicamento(boton){
+    console.log(boton)    
+    var usuario = boton.value
+    
+    sessionStorage.setItem("buscar_amedicamento", usuario)
+
+    
+    location.href="Medicamento.html"
+  }
+  </script>
+
+  <script>
+    function PDFPacientes(){
+      html2canvas($('#pdfpacientes')[0], {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("Pacientes.pdf");
+            }
+        });
+    }
+  </script>
+
+  <script>
+    function PDFEnfermeros(){
+      html2canvas($('#pdfenfermeros')[0], {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("Enfermeros.pdf");
+            }
+        });
+    }
+  </script>
+
+  <script>
+    function PDFDoctores(){
+      html2canvas($('#pdfdoctores')[0], {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("Doctores.pdf");
+            }
+        });
+    }
+  </script>
+
+  <script>
+    function PDFMedicamentps(){
+      html2canvas($('#pdfmedicamnetos')[0], {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("Medicamentos.pdf");
+            }
+        });
+    }
+  </script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>  
+
+</body>
+
+</html>
