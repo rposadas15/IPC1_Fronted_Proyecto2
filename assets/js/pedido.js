@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const fetchData = async () => {
     try {
-        const res = await fetch('http://localhost:3000/Medicamentos')
+        const res = await fetch('https://proyecto2-b.herokuapp.com//Medicamentos')
         const data = await res.json()        
         pintarProductos(data)
     } catch (error) {
